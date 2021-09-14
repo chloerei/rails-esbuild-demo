@@ -2,10 +2,16 @@
   "name": "rails-esbuild-demo",
   "private": true,
   "dependencies": {
-    "@rails/ujs": "^6.0.0",
-    "turbolinks": "^5.2.0",
+    "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
-    "@rails/actioncable": "^6.0.0"
+    "@rails/ujs": "^6.0.0",
+    "esbuild": "^0.12.28",
+    "sass": "^1.40.0",
+    "turbolinks": "^5.2.0"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds --sourcemap",
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --load-path=node_modules --embed-sources"
   },
   "version": "0.1.0"
 }
